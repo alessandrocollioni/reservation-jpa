@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "estado")
-public class State {
+public class State implements BaseEntity {
 
     @Id
     @GeneratedValue(generator = "estado_seq",
@@ -17,6 +17,13 @@ public class State {
 
     @OneToMany(mappedBy="state")
     private List<City> items;
+
+    public State() {}
+
+
+    public State(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
@@ -34,6 +41,7 @@ public class State {
         this.name = name;
     }
 
+
     public List<City> getItems() {
         return items;
     }
@@ -41,4 +49,13 @@ public class State {
     public void setItems(List<City> items) {
         this.items = items;
     }
+
+    @Override
+    public String toString() {
+        return "State{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
 }

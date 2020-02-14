@@ -71,4 +71,11 @@ public abstract class DAO<T extends BaseEntity> {
         return value;
     }
 
+    public T findById(Long id) {
+        begin();
+        T value = (T) em.find(getClassName(), id);
+        close();
+        return value;
+    }
+
 }

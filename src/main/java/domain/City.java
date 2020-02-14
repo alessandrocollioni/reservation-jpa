@@ -18,6 +18,13 @@ public class City implements BaseEntity {
     @JoinColumn(name="id_estado")
     private State state;
 
+    public City() {}
+
+    public City(String name, State state) {
+        this.name = name;
+        this.state = state;
+    }
+
     @Override
     public Long getId() {
         return id;
@@ -33,5 +40,14 @@ public class City implements BaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", state=" + state +
+                "}\n";
     }
 }
